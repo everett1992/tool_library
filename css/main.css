@@ -1,0 +1,27 @@
+@media (min-width: 900px) {
+  body {
+    display: grid;
+    column-gap: 20px;
+    grid-template: "a a a" auto
+                   "b c c" / 1fr 1fr 1fr;
+  }
+
+}
+
+
+.title {
+  grid-area: a;
+}
+
+.nav {
+  grid-area: b;
+}
+
+.main {
+  grid-area: c;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
