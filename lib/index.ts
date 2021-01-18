@@ -5,4 +5,4 @@ import home from './home';
 
 
 console.log('writing...');
-fs.writeFileSync('public/index.html', renderToStaticMarkup(home()));
+fs.writeFileSync('docs/index.html', renderToStaticMarkup(home()));
