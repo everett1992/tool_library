@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "ts-node lib/index.ts"
+    "gen": "ts-node generator docs/index.html"
   },
   "author": "",
   "license": "UNLICENSED",
