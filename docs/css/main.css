@@ -6,6 +6,38 @@
                    "b c c" / 1fr 1fr 1fr;
   }
 
+  .wide-200px {
+    width: 200px;
+    height: 200px;
+  }
+
+  .wide-flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .narrow-full-width {
+    width: 100%;
+  }
+
+  .narrow-hide {
+    display: none;
+  }
+}
+
+form {
+  max-width: 50ch;
+}
+
+form input, form textarea {
+  width: 100%;
+}
+
+p {
+  margin: 15px;
 }
 
 
@@ -19,9 +51,4 @@
 
 .main {
   grid-area: c;
-}
-
-img {
-  width: 200px;
-  height: 200px;
 }

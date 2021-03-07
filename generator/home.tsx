@@ -143,7 +143,7 @@ const tools: Tool[] = [
   {
     name: 'Logic analyzer',
     image: 'images/saleae_logic_analyzer.jpg',
-    desc: 'Saleae Logic Pro 8, 8 channel lgoic analyzer',
+    desc: 'Saleae Logic Pro 8, 8 channel logic analyzer',
   },
   {
     name: 'Saw horses',
@@ -209,15 +209,16 @@ export default function home() {
   return skeleton("Tools", <React.Fragment>
       <div className="title">
         <h1 className="title">Tools</h1>
+      </div>
+      <div className="nav narrow-hide">
+        <Index tools={tools}/>
+      </div>
+      <div className="main">
         <p>
           Contact me to borrow any of these tools or if there are tools
           you want that are not listed.
         </p>
-      </div>
-      <div className="nav">
-        <Index tools={tools}/>
-      </div>
-      <div className="main">
+        <Form/>
         {tools.map(tool => <Tool key={tool.name} tool={tool}/>)}
       </div>
     </React.Fragment>
@@ -229,18 +230,36 @@ function Index({tools}: {tools: Tool[]}) {
 }
 
 function Tool({tool}: {tool: Tool}) {
-  return <div key={tool.name} id={tool.name}>
+  return <div className="tool" key={tool.name} id={tool.name}>
     <h3>{tool.name}</h3>
-    {
-      tool.image != null
-      ? <a title="View full sized image" href={tool.image}><img src={tool.image} loading="lazy"/></a>
-      : null
-    }
-    {tool.desc
-      ? <div>{tool.desc}</div>
-      : null
-    }
+
+    <div className="wide-flex-row">
+      {
+        tool.image != null
+        ? <a title="View full sized image" href={tool.image}>
+          <img className="narrow-full-width wide-200px" src={tool.image} loading="lazy"/>
+          </a>
+        : null
+      }
+
+      {tool.desc
+        ? <p>{tool.desc}</p>
+        : null
+      }
+    </div>
   </div>
+}
+
+function Form() {
+  return (
+    <form action="https://formspree.io/f/moqpgapv" method="POST">
+      <input placeholder="your email" type="email" required name="_replyto"/>
+      <br/>
+      <textarea placeholder="message" required name="message"/>
+      <br/>
+      <input type="submit" value="Send"/>
+    </form>
+  )
 }
 
 function skeleton(title: string, children: any) {
